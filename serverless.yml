@@ -1,0 +1,22 @@
+service: skyworkz
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: dev
+  region: eu-west-1
+
+functions:
+  get:
+    handler: src/get/index.handler
+    events:
+      - httpApi:
+          path: /
+          method: get
+  post:
+    handler: src/post/index.handler
+    events:
+      - httpApi:
+          path: /
+          method: post
