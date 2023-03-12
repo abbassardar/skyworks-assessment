@@ -4,16 +4,15 @@ import {
   PutCommand,
 } from "@aws-sdk/lib-dynamodb";
 import { v4 as uuidv4, v6 as uuidv6 } from 'uuid';
+
 const client = new DynamoDBClient({});
-
 const dynamo = DynamoDBDocumentClient.from(client);
-
 const tableName = "skyworkz-news";
 
 
 
 module.exports.post = async (event, context) => {  
-  generatedId = uuidv4;
+  let generatedId = uuidv4;
   let requestJSON = JSON.parse(event.body);
         await dynamo.send(
           new PutCommand({

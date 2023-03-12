@@ -1,0 +1,20 @@
+{
+  "name": "skyworkz",
+  "version": "1.0.0",
+  "description": "assessment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abbassardar/skyworks-assessment.git"
+  },
+  "author": "Abbas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abbassardar/skyworks-assessment/issues"
+  },
+  "homepage": "https://github.com/abbassardar/skyworks-assessment#readme",
+  "type": "module"
+}
