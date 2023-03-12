@@ -12,7 +12,7 @@ const tableName = "skyworkz-news";
 
 
 
-module.exports.post = async (event, context) => {  
+module.exports.get = async (event, context) => {  
   generatedId = uuidv4;
   body = await dynamo.send(
     new ScanCommand({ TableName: tableName })
