@@ -1,21 +1,34 @@
-import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
-import {
-  DynamoDBDocumentClient,
-  ScanCommand,
-} from "@aws-sdk/lib-dynamodb";
+var AWS = require('aws-sdk');
 
 const client = new DynamoDBClient({});
 const dynamo = DynamoDBDocumentClient.from(client);
 const tableName = "skyworkz-news";
 
-module.exports.get = async (event, context) => {  
-  let body = await dynamo.send(
-    new ScanCommand({ TableName: tableName })
-  );
-  body = body.Items;
+module.exports.post = async (event, context) => {  
+  generatedId = uuid.v4;
+  let requestJSON = JSON.parse(event.body);
+        await dynamo.send(
+          new PutCommand({
+            TableName: tableName,
+            Item: {
+              id: generatedId,
+              title: requestJSON.title,
+              date: requestJSON.date,
+              description: requestJSON.description,
+            },
+          })
+        );
+        body = `Put item ${generatedId}`;
 
+  event.body
   return {
-    statusCode: 200,
-    body: JSON.stringify(body),
+    statusCode: 201,
+    body: JSON.stringify(
+      {
+        message: "Item created with id: ", generatedId,
+      },
+      null,
+      2
+    ),
   };
 };
