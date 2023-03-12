@@ -3,19 +3,24 @@ frameworkVersion: '3'
 
 provider:
   name: aws
-  runtime: nodejs18.x
+  runtime: go1.x
   stage: dev
   region: eu-west-1
 
+package:
+  patterns:
+    - '!./**'
+    - ./bin/**
+
 functions:
   get:
-    handler: src/get/index.handler
+    handler: bin/api/get
     events:
       - httpApi:
           path: /
           method: get
   post:
-    handler: src/post/index.handler
+    handler: bin/api/post
     events:
       - httpApi:
           path: /
