@@ -16,9 +16,11 @@ functions:
       - httpApi:
           path: /
           method: get
+          private: true
   post:
     handler: src/post/index.handler
     events:
       - httpApi:
           path: /
           method: post
+          private: true
