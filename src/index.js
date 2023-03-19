@@ -4,7 +4,7 @@ AWS.config.update({
 });
 
 const dynamoDB = new AWS.DynamoDB.DocumentClient();
-const tableName = "skyworkz-news";
+const tableName = 'skyworkz-news';
 
 module.exports.handler = async (event) => {  
  let response;
