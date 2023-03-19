@@ -1,4 +1,4 @@
-var AWS = require('aws-sdk');
+var AWS = import('aws-sdk');
 AWS.config.update({
   region:'eu-west-1'
 });
