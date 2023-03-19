@@ -9,13 +9,13 @@ provider:
 
 functions:
   get:
-    handler: src/index.get
+    handler: src/index.handler
     events:
       - httpApi:
           path: /
           method: get
   post:
-    handler: src/index.post
+    handler: src/index.handler
     events:
       - httpApi:
           path: /
