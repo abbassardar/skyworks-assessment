@@ -41,7 +41,7 @@ async function scanDynamoRecords(scanParams, itemsArray){
     }
   return itemsArray
 }catch(error){
-  console.error("");
+  console.error("problem scanning items", error);
 }
 }
 
@@ -58,7 +58,7 @@ async function saveItem(requestBody){
     }
     return buildResponse(200, body);
   }, (error) => {
-    console.error("");
+    console.error("problem saving item", error);
   })
 }
 
