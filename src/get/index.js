@@ -7,24 +7,10 @@ const dynamoDB = new AWS.DynamoDB.DocumentClient();
 const tableName = 'skyworkz-news';
 
 module.exports.handler = async (event) => {
-  console.log("test");
   let response;
-  switch (true) {
-    case event.httpMethod === 'GET':
-      console.log("test get");
-
-      response = await getItems();
-      console.log("test after get");
-
-      break;
-    case event.httpMethod === 'POST':
-      console.log("test post ");
-
-      response = await saveItem(JSON.parse(event.body));
-      console.log("testafter post");
-
-      break;
-  }
+  console.log("test get");
+  response = await getItems();
+  console.log("test after get");
   return response;
 };
 
@@ -58,24 +44,6 @@ async function scanDynamoRecords(scanParams, itemsArray) {
     console.error("problem scanning items", error);
   }
 }
-
-async function saveItem(requestBody) {
-  const params = {
-    TableName: tableName,
-    Item: requestBody
-  }
-  return await dynamoDB.put(params).promise().then(() => {
-    const body = {
-      Operation: 'SAVE',
-      Message: 'SUCCESS',
-      Item: requestBody
-    }
-    return buildResponse(200, body);
-  }, (error) => {
-    console.error("problem saving item", error);
-  })
-}
-
 
 function buildResponse(statusCode, body) {
   return {
