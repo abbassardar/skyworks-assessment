@@ -16,9 +16,8 @@
     "url": "https://github.com/abbassardar/skyworks-assessment/issues"
   },
   "homepage": "https://github.com/abbassardar/skyworks-assessment#readme",
-  "type": "module",
+  "type": "commonjs",
   "target": "esnext",
-  "module": "commonjs",
   "dependencies": {
     "aws-sdk": "^2.1333.0"
   }
