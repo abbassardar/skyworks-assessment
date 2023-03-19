@@ -6,17 +6,21 @@ provider:
   runtime: nodejs18.x
   stage: dev
   region: eu-west-1
+  apiKeys: 
+    - web-dev-api
 
 functions:
   get:
     handler: src/get/index.handler
     events:
-      - http:
+      - httpApi:
           path: /news
           method: get
+          private: true
   post:
     handler: src/post/index.handler
     events:
-      - http:
+      - httpApi:
           path: /newsitem
           method: post
+          private: true
