@@ -13,14 +13,14 @@ functions:
   get:
     handler: src/get/index.handler
     events:
-      - httpApi:
-          path: /
+      - http:
+          path: /news
           method: get
           private: true
   post:
     handler: src/post/index.handler
     events:
-      - httpApi:
-          path: /
+      - http:
+          path: /newsitem
           method: post
           private: true
