@@ -6,6 +6,8 @@ provider:
   runtime: nodejs18.x
   stage: dev
   region: eu-west-1
+  apiKeys: 
+    - web-dev-api
 
 functions:
   get:

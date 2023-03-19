@@ -8,10 +8,7 @@ const tableName = 'skyworkz-news';
 
 module.exports.handler = async (event) => {
   let response;
-  console.log("test post  event  ", event);
-  var data = event.body.trim();
-  response = await saveItem(JSON.parse(data));
-  console.log("testafter post");
+  response = await saveItem(JSON.parse(event.body));
   return response;
 };
 

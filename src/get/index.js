@@ -8,9 +8,7 @@ const tableName = 'skyworkz-news';
 
 module.exports.handler = async (event) => {
   let response;
-  console.log("test get");
   response = await getItems();
-  console.log("test after get");
   return response;
 };
 
@@ -19,15 +17,10 @@ async function getItems() {
   const params = {
     TableName: tableName
   }
-  console.log("test before scan");
-
   const allItems = await scanDynamoRecords(params, []);
   const body = {
     items: allItems
   }
-  console.log("test after scan");
-  console.log("testitems ", allItems);
-
   return buildResponse(200, body)
 }
 
